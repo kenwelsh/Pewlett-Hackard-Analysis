@@ -5,6 +5,7 @@ dept_name varchar
 
 Dept_Emp
 -
+de_id serial pk
 emp_no varchar FK >- Employees.emp_no
 dept_no varchar FK >- Departments.dept_no
 from_date date
@@ -12,14 +13,15 @@ to_date date
 
 Dept_Manager
 -
-dept_no varchar fk - Departments.dept_no
-emp_no varchar fk - Employees.emp_no
+dm_id serial pk
+dept_no varchar fk >- Departments.dept_no
+emp_no varchar fk >- Employees.emp_no
 from_date date
 to_date date
 
 Employees
 -
-emp_no int pk FK
+emp_no int pk 
 birth_date date
 first_name varchar
 last_name varchar
@@ -28,13 +30,14 @@ hire_date date
 
 Salaries
 -
-emp_no varchar FK >- Employees.emp_no
+emp_no varchar pk FK - Employees.emp_no
 salary int
 from_date date
 to_date date
 
 Titles
 -
+t_id serial pk
 emp_no varchar FK >- Employees.emp_no
 title varchar
 from_date date
