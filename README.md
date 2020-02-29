@@ -76,7 +76,7 @@ PH provided six .csv files, which can be found in the Data folder, to build the 
 Department Employee, Department Manager, and Titles have an auto-incrementing id added during table creation as a Primary Key field.  The table structure for these tables allows for duplicates of the key fields as they track the history of changes.  For example, an employee number and department number combination can repeat over the course of a career – i.e., Joe starts in Sales, moves to Marketing, and then returns to Sales.
 
 
-The Salaries table has a similar table structure, allowing it to track changes over time, but analyzing the data showed that Employee Number only occurs once in the file, allowing it to be the primary key.  Adding the full salary history in the future will require an update to the primary key for this table. 
+The Salaries table has a similar table structure, allowing it to track changes over time, but analyzing the data showed that Employee Number only occurs once in the file, allowing it to be the primary key.  The salary data provided is the most recent salary information for an employee.  Adding the full salary history in the future will require an update to the primary key for this table.  
 
 
 #### Project Requests and PostgreSQL
