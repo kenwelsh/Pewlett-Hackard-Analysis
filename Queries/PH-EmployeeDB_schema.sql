@@ -18,7 +18,7 @@ PRIMARY KEY (emp_no)
 );
 
 
--- Uncheck dm_id column when importing csv file using pgAdmin GUI
+-- Uncheck dm_id column in Columns to Import when importing csv file using pgAdmin GUI
 CREATE TABLE dept_manager (
 	dm_id Serial Primary Key,
 	dept_no VARCHAR(4) NOT NULL,
@@ -39,7 +39,7 @@ FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
 
 
--- Uncheck de_id column when importing csv file using pgAdmin GUI
+-- Uncheck de_id column in Columns to Import when importing csv file using pgAdmin GUI
 CREATE TABLE dept_emp (
 	de_id Serial Primary Key,
 	emp_no INT NOT NULL,
@@ -51,7 +51,7 @@ FOREIGN KEY (dept_no) REFERENCES departments (dept_no)
 );
 
 
--- Uncheck t_id column when importing csv file using pgAdmin GUI
+-- Uncheck t_id column in Columns to Import when importing csv file using pgAdmin GUI
 CREATE TABLE titles (
 	t_id Serial Primary Key,
 	emp_no INT NOT NULL,

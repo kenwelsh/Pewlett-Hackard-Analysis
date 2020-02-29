@@ -20,7 +20,8 @@ PRIMARY KEY (emp_no)
 );
 
 
--- Uncheck dm_id column when importing csv file using pgAdmin GUI
+-- Uncheck dm_id column in Columns to Import 
+-- when importing csv file using pgAdmin GUI
 CREATE TABLE dept_manager (
 	dm_id Serial Primary Key,
 	dept_no VARCHAR(4) NOT NULL,
@@ -41,7 +42,8 @@ FOREIGN KEY (emp_no) REFERENCES employees (emp_no)
 );
 
 
--- Uncheck de_id column when importing csv file using pgAdmin GUI
+-- Uncheck de_id column in Columns to Import 
+-- when importing csv file using pgAdmin GUI
 CREATE TABLE dept_emp (
 	de_id Serial Primary Key,
 	emp_no INT NOT NULL,
@@ -53,7 +55,8 @@ FOREIGN KEY (dept_no) REFERENCES departments (dept_no)
 );
 
 
--- Uncheck t_id column when importing csv file using pgAdmin GUI
+-- Uncheck t_id column in Columns to Import 
+-- when importing csv file using pgAdmin GUI
 CREATE TABLE titles (
 	t_id Serial Primary Key,
 	emp_no INT NOT NULL,
@@ -100,24 +103,26 @@ Where ti.to_date = '9999-01-01'
 ORDER BY ce.last_name, ce.first_name;
 
 -- check counts for duplicate emp_no
+-- count: 33118
 SELECT COUNT(emp_no)
 FROM cur_emp_title_sal;
--- count: 33118
 
+-- count distinct:  33118
 SELECT COUNT(Distinct emp_no)
 FROM cur_emp_title_sal;
--- count distinct:  33118
+
 
 -- 2) In descending order, list the frequency count of employee
 -- titles (i.e., how many employees share the same title?)
 
 -- create a table of counts of titles for potential retiring employees
+-- table sums to 33118 total
 SELECT ce.title, COUNT(ce.emp_no)
 Into title_count
 FROM cur_emp_title_sal as ce
 GROUP BY ce.title
 ORDER BY COUNT(ce.emp_no) DESC;
--- table sums to 33118
+
 
 -- 3) Who’s Ready for a Mentor?  Create a new table that contains 
 -- the following information: emp no, first and last name, title, from date
@@ -144,35 +149,29 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY e.last_name, e.first_name;
 
 -- check counts for duplicate emp_no
+-- count: 1549
 SELECT COUNT(emp_no)
 FROM future_promo;
--- count: 1549
 
+-- count distinct: 1549
 SELECT COUNT(Distinct emp_no)
 FROM future_promo;
--- count distinct: 1549
+
 
 -- Part 2
-
 -- write up -  number of individuals retiring, number of individuals being
 -- hired, number of individuals available for mentorship role
 
 -- number eligible for retirement
 SELECT COUNT(emp_no)
 FROM current_emp;
--- count: 33118
+
 
 -- Titles potentially retiring/hiring
 SELECT * FROM title_count;
--- Senior Engineer: 13651
--- Senior Staff: 12872
--- Engineer: 2711
--- Staff: 2022
--- Technique Leader: 1609
--- Assistant Engineer: 251
--- Manager: 2
+
 
 -- number of individuals available for mentorship role
 SELECT COUNT(emp_no)
 FROM future_promo;
--- count: 1549
+
