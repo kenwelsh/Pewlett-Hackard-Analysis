@@ -6,7 +6,7 @@
 ### Project Summary
 Pewlett Hackard is analyzing the potential number of employees that will be retiring in the next few years.  Findings:
 + Potential retiring population/turnover hiring activity: 33,118
-+ The number of individuals on the target list for a supervisory role:  1,549
++ The number of individuals on a target list for a supervisory role:  1,549
 + Title counts for retiring population:
 ##### Retiring Title Count
 <table border="1" class="dataframe" style="width:25%">
